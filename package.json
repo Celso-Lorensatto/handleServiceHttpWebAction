@@ -1,0 +1,22 @@
+{
+  "name": "handleservicehttpwebaction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --watch ./ --ext ts --exec ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.12"
+  },
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/lodash": "^4.17.4",
+    "axios": "^1.6.8",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.9.2"
+  }
+}
