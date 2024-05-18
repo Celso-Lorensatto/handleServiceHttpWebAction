@@ -38,7 +38,7 @@ export abstract class SHWADataStruct {
       throw new Error("Action Not Found in the service Provided Data");
     }
     const url = actionData.url;
-    const method = actionData.method;
+    const method = actionData.method.toLowerCase();
     const headers = {
       ...serviceData.headers,
       ...actionData.headers,
