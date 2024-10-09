@@ -1,3 +1,5 @@
+import SolutionHandler from "@providers/abstract/solutionAbstract";
+
 interface IFieldsMap {
   body?: {
     [key: string]: string[];
@@ -24,10 +26,14 @@ interface IServiceData {
   actions: IActions;
 }
 
-export abstract class SHWADataStruct {
+export abstract class SHWADataStruct extends SolutionHandler {
   libData: any;
 
-  constructor(libData: any) {
+  constructor() {
+    super();
+  }
+
+  async initialize(libData) {
     this.libData = libData;
   }
 

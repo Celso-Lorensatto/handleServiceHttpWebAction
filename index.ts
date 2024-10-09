@@ -1,14 +1,22 @@
 import axios, { AxiosResponse } from "axios";
-import { SHWADataStruct } from "./abstract/SHWADataString";
+import { SHWADataStruct } from "./abstract";
 import { assign, size } from "lodash";
 
 interface IhandleServiceHttpWebActionOptions {
-  body?: { [key: string]: string };
-  headers?: { Cookie: string; [key: string]: string };
+  body?: any;
+  headers?: { Cookie: string;[key: string]: string };
   formData?: true | false;
 }
 
 export default class SHWA extends SHWADataStruct {
+  static createInstance() {
+    return new this();
+  }
+
+  static getInstance(): SHWA {
+    return super.getInstance();
+  }
+
   async handleServiceHttpWebAction(
     serviceName: string,
     action: string,
@@ -52,12 +60,6 @@ export default class SHWA extends SHWADataStruct {
     if (options.formData) {
       finalBody = this.objToFormData(finalBody);
     }
-
-    console.log({
-      url,
-      finalHeaders,
-      finalBody,
-    });
 
     if (method == "get") {
       return await axios.get(url, { headers: finalHeaders });
